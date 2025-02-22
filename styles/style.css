@@ -161,10 +161,6 @@
     1px 1px var(--color-text-shadow, #ffffff),
     -1px -1px var(--color-text-shadow, #ffffff);
   }
-  
-  .label {
-    text-stroke: 1px var(--color-text-shadow, #ffffff);
-  }
 }
 
 .card__content {
@@ -235,17 +231,12 @@
 }
 
 .floppy__save__svg {
-  width: 100%;
-  height: 100%;
-}
-
-.floppy__save {
   inline-size: 28px;
   block-size: 28px;
 }
 
 @media (width >= 768px) {
-  .floppy__save {
+  .floppy__save__svg {
     inline-size: 21px;
     block-size: 21px;
   }
@@ -322,7 +313,7 @@
   translate: 0%;
 }
 
-.floppy__save svg {
+.floppy__save__svg {
   mix-blend-mode: difference;
   position: relative;
   color: #ffffff;
