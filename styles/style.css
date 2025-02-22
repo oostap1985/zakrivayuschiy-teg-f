@@ -233,6 +233,9 @@
 .floppy__save__svg {
   inline-size: 28px;
   block-size: 28px;
+  mix-blend-mode: difference;
+  position: relative;
+  color: #ffffff;
 }
 
 @media (width >= 768px) {
@@ -311,12 +314,6 @@
 
 .button:hover::before {
   translate: 0%;
-}
-
-.floppy__save__svg {
-  mix-blend-mode: difference;
-  position: relative;
-  color: #ffffff;
 }
 
 .card__icon-button:focus-visible {
