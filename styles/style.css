@@ -97,7 +97,7 @@
   display: grid;
   position: relative;
   overflow: hidden;
-
+  max-block-size: 700px;
 }
 
 .card__img {
@@ -105,6 +105,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  aspect-ratio: 1/1;
 }
 
 .card__img__one {
@@ -124,7 +125,7 @@
 }
 
 .card__img__five {
-  filter: grayscale(100%) blur(8px);
+  filter: grayscale(40%) blur(6px) invert(100%);
 }
 
 .card__img__six {
