@@ -10,7 +10,7 @@
 
 */
 
-@keyframes heart-like {
+@keyframes scale-heart {
   from {
     transform: scale(1);
   }
@@ -20,7 +20,7 @@
   }
 }
 
-@keyframes sparks-like {
+@keyframes show-sparks {
   from {
     opacity: 0;
   }
@@ -64,8 +64,14 @@
   transition: fill 0.3s 0.05s linear;
 }
 
-.like-icon.is-liked :is(.core, .main-body) {
+.like-icon.is-liked .core {
   fill: var(--main-body-color, #ff0000);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--main-body-color, #ff0000);
+  transition: fill 0.3s linear;
 }
 
 .like-icon .contour {
@@ -82,9 +88,9 @@
 }
 
 .like-icon.is-liked .heart {
-  animation: heart-like 0.3s 0.1s ease-in;
+  animation: scale-heart 0.3s 0.1s ease-in;
 }
 
 .like-icon.is-liked .sparks {
-  animation: sparks-like 0.3s 0.3s ease-in;
+  animation: show-sparks 0.3s 0.3s ease-in;
 }

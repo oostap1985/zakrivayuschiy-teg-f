@@ -7,7 +7,7 @@
     --line-height-heading: 1.36125rem;
     --line-height-text: 1.3125rem;
     --font-family-accent: PressStart2P;
-    --width__size: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
+    --width-size: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
     --bg-image-gradient:
         repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px ), 
         repeating-linear-gradient(0deg, #d3d3d3 0 2px, transparent 2px 4px ), 

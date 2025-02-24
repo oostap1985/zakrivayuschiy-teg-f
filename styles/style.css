@@ -26,7 +26,7 @@
 
 .header {
   margin-block: 100px;
-  min-height: clamp(20.4375rem, 19.5352rem + 3.8498vw, 23rem);
+  padding-block: clamp(7.5rem, 7.3239rem + 0.7512vw, 8rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,8 +37,8 @@
   font-family: var(--font-family-accent), serif;
 }
 
-.width__size {
-  inline-size: var(--width__size);
+.width-block {
+  inline-size: var(--width-size);
 }
 
 @media (width <= 375px) {
@@ -50,7 +50,7 @@
     inline-size: 100%;
   }
 
-  .width__size {
+  .width-block {
     inline-size: 100%;
   }
 }
@@ -60,6 +60,7 @@
   font-weight: 400;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   line-height: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  text-transform: uppercase;
 }
 
 .logo__text {
@@ -67,6 +68,7 @@
   font-weight: 400;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   line-height: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  text-transform: uppercase;
 }
 
 .main {
@@ -85,7 +87,7 @@
 }
 
 .card__heading {
-  padding-inline: 10px;
+  padding: 5px 10px;
   font-family: inherit;
   font-size: var(--font-size-main, 18px);
   font-variation-settings: "wght" var(--font-weight-heading), "slnt" 0;
@@ -108,42 +110,42 @@
   aspect-ratio: 1/1;
 }
 
-.card__img__one {
+.filter__none {
   filter: none;
 }
 
-.card__img__two {
+.filter__sepia {
   filter: sepia(80%);
 }
 
-.card__img__three {
+.filter__contrast {
   filter: contrast(200%);
 }
 
-.card__img__four {
+.filter__invert {
   filter: invert(100%);
 }
 
-.card__img__five {
+.filter__grayscale-blur-invert {
   filter: grayscale(40%) blur(6px) invert(100%);
 }
 
-.card__img__six {
+.filter__hue-rotate-saturate {
   filter: hue-rotate(180deg) saturate(60%);
 }
 
-.card__img__seven {
+.filter__opacity {
   filter: opacity(0.6);
 }
 
-.card__img__eight {
+.filter__brightness-saturate {
   filter: brightness(250%) saturate(90%);
 }
 
 .label {
   position: absolute;
   top: 25px;
-  right: 13px;
+  right: clamp(0.8125rem, 0.5484rem + 1.1268vw, 1.5625rem);
   font-family: var(--font-family-accent, serif);
   font-weight: 400;
   font-size: 14px;
@@ -186,7 +188,6 @@
   display: flex;
   gap: 4px;
   align-self: end;
-  align-items: end;
 }
 
 .card__icon-button {
@@ -194,6 +195,7 @@
   block-size: 38px;
   padding: 0;
   border: 2px solid transparent;
+  background-color: none;
 }
 
 .like-icon {
@@ -203,10 +205,8 @@
 }
 
 .card__like-button {
-  width: 130px;
-  height: 38px;
-  background-color: var(--background-color, #ffffff);
-  border: 2px solid var(--border-color, #000000);
+  min-width: 130px;
+  min-height: 38px;
 }
 
 .button__text {
@@ -228,7 +228,6 @@
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
-  border: 2px solid var(--border-color, #000000);
 }
 
 .floppy__save__svg {
@@ -246,14 +245,17 @@
   }
 }
 
-.dialog[open] {
+.dialog {
+  padding: 30px;
+  border: 2px solid var(--border-color, #000000);
   inline-size: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
-  padding: 30px 42px;
+}
+
+.dialog[open] {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 27px;
-  border: 2px solid var(--border-color, #000000);
 }
 
 .dialog[open]::backdrop {
@@ -264,12 +266,12 @@
 .content__dialog {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
 }
 
 .floppy__dialog {
-  min-inline-size: 39px;
-  min-block-size: 39px;
+  min-width: 39px;
+  min-height: 39px;
 }
 
 .text__dialog {
@@ -279,14 +281,32 @@
 
 .button__dialog {
   inline-size: 100%;
-  block-size: 38px;
+  min-block-size: 38px;
   appearance: none;
   text-transform: uppercase;
-  border: 2px solid var(--border-color, #000000);
 }
 
-:is(.button, .card__icon-button):focus {
+.button {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--border-color, #000000);
+  background-color: var(--background-color, #ffffff);
+}
+
+.button:focus {
   outline: none;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.card__icon-button {
+  cursor: pointer;
 }
 
 .button:focus-visible {
@@ -302,15 +322,6 @@
   transform-origin: left;
   transition: translate 0.5s ease-in-out;
   translate: -100%;
-}
-
-.button {
-  position: relative;
-  overflow: hidden;
-}
-
-:is(.button, .card__icon-button):hover {
-  cursor: pointer;
 }
 
 .button:hover::before {
