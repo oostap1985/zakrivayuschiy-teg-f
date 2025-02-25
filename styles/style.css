@@ -25,6 +25,7 @@
 }
 
 .header {
+  inline-size: var(--width-header);
   margin-block: 100px;
   padding-block: clamp(7.5rem, 7.3239rem + 0.7512vw, 8rem);
   display: flex;
@@ -35,10 +36,6 @@
   background-color: var(--background-color, #ffffff);
   border: 2px solid var(--border-color, #000000);
   font-family: var(--font-family-accent), serif;
-}
-
-.width-block {
-  inline-size: var(--width-size);
 }
 
 @media (width <= 375px) {
@@ -81,6 +78,7 @@
 .card {
   display: flex;
   flex-direction: column;
+  inline-size: var(--width-card);
   font-family: inherit;
   background-color: var(--background-color, #ffffff);
   border: 2px solid var(--border-color, #000000);
@@ -195,7 +193,7 @@
   block-size: 38px;
   padding: 0;
   border: 2px solid transparent;
-  background-color: none;
+  background-color: transparent;
   cursor: pointer;
 }
 
@@ -247,6 +245,9 @@
 }
 
 .dialog {
+  flex-direction: column;
+  align-items: center;
+  gap: 27px;
   padding: 30px;
   border: 2px solid var(--border-color, #000000);
   inline-size: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
@@ -254,9 +255,6 @@
 
 .dialog[open] {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 27px;
 }
 
 .dialog[open]::backdrop {
@@ -277,6 +275,9 @@
 
 .text__dialog {
   text-transform: uppercase;
+  font-family: var(--font-family-accent, serif);
+  font-size: 0.875rem;
+  font-weight: 400;
   line-height: var(--line-height-text, 21px);
 }
 
